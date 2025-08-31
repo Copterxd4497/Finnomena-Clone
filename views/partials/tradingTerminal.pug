@@ -1,0 +1,31 @@
+.trading-terminal
+  .terminal-header
+    .terminal-title Trading Terminal
+    .terminal-indicators
+      .indicator.green
+      .indicator.green
+      .indicator.yellow
+
+  .terminal-content
+    .search-terminal
+      .search-icon >
+      input.search-input(type="text" placeholder="Search symbols: AAPL, GOOGL, TSLA...")
+
+    .stock-list
+      if stocks && stocks.length > 0
+        each stock in stocks
+          .stock-row(class= stock.symbol === 'AAPL' ? 'selected' : '')
+            .stock-main
+              .stock-info
+                .stock-symbol= stock.symbol
+                .stock-name= stock.name
+              .stock-price(class= stock.up ? 'price-up' : 'price-down')= stock.price
+              .stock-change(class= stock.up ? 'change-up' : 'change-down')= stock.change
+              .stock-volume Vol: #{stock.volume}
+            .stock-actions
+              button.action-btn.buy BUY
+              button.action-btn.sell SELL
+      else
+        .no-stocks-message
+          p No stocks available for trading
+          p Please check back later

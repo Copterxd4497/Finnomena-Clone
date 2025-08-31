@@ -1,0 +1,25 @@
+.sidebar
+  // Portfolio Panel
+  .panel
+    .panel-header Portfolio Holdings
+    .panel-content
+      if portfolio && portfolio.length > 0
+        each item in portfolio
+          .portfolio-item
+            .portfolio-stock
+              .portfolio-symbol= item.symbol
+              .portfolio-shares= item.shares
+            .portfolio-value
+              .portfolio-amount(class= item.up ? 'price-up' : 'price-down')= item.amount
+              .portfolio-pnl(class= item.up ? 'change-up' : 'change-down')= item.pnl
+      else
+        .no-portfolio-message
+          p No portfolio holdings available
+          p Start trading to build your portfolio
+
+  // Quick Actions Panel
+  .panel
+    .panel-header Quick Actions
+    .panel-content
+      each action in ["Portfolio Analytics", "Risk Management", "Market Scanner", "Order History", "Account Settings", "API Documentation"]
+        button.quick-action= action

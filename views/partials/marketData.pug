@@ -1,0 +1,17 @@
+.market-data
+  .panel-header Market Overview
+  .market-grid
+
+    if stocks && stocks.length > 0
+      each market in stocks
+        .market-card
+          .market-index= market.index
+          .market-value= market.value
+          .market-change(class= market.up ? 'change-up' : 'change-down')
+            span.trend-indicator= market.up ? '▲' : '▼'
+            | #{market.change}
+    else
+      .no-data-message
+        p No market data available
+        p Please try again later
+          
