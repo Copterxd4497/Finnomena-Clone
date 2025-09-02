@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import userRoutes from "./routes/userRoutes.js";
+import buyRoutes from "./routes/buyroutes.js";
 
 const app = express();
 
@@ -26,5 +27,6 @@ app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
 // Default route
 app.use("/", userRoutes);
+app.use("/buy", buyRoutes);
 
 export default app;

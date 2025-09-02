@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import stocks from "../data/stock.js";
 
 // Create a new user
-export const createUser = async (req00: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response) => {
   try {
     // Check if stocks exist
     if (stocks && stocks.length > 0) {
